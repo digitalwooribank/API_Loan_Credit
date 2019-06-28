@@ -1,0 +1,280 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "UNOAPI Swagger Spec. JSON",
+		"version": "1.0.0",
+		"title": "UNOAPI"
+	},
+	"host": "192.168.117.53:8090",
+	"basePath": "/",
+	"tags": [{
+		"name": "api-list",
+		"description": "List of APIs"
+	}],
+	"paths": {
+		"/oai/wb/v1/credit/getCreditLoanBasicInfo": {
+			"post": {
+				"tags": ["api-list"],
+				"summary": "대출기본정보요청API",
+				"operationId": "_oai_wb_v1_credit_getCreditLoanBasicInfo",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "appkey",
+					"in": "header",
+					"description": "API Key(제휴사키)",
+					"required": false
+				},
+				{
+					"name": "token",
+					"in": "header",
+					"description": "인증토큰",
+					"required": false
+				},
+				{
+					"name": "itcsno",
+					"in": "header",
+					"description": "통합고객번호",
+					"required": false
+				},
+				{
+					"name": "ebnk_utzpe_no",
+					"in": "header",
+					"description": "전자뱅킹이용자번호",
+					"required": false
+				},
+				{
+					"in": "body",
+					"name": "REQUEST",
+					"description": "request body",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_REQUEST_trzodgfjhe7o"
+					}
+				}],
+				"responses": {
+					"400": {
+						"description": "BAD_REQUEST"
+					},
+					"404": {
+						"description": "NOT_FOUND"
+					},
+					"405": {
+						"description": "METHOD_NOT_ALLOWED"
+					},
+					"500": {
+						"description": "INTERNAL_SERVER_ERROR"
+					},
+					"503": {
+						"description": "SERVICE_UNAVAILABLE"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_RESPONSE_qhkjka6zhvli"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"_oai_wb_v1_credit_getCreditLoanBasicInfo_REQUEST_trzodgfjhe7o": {
+			"type": "object",
+			"required": ["dataBody",
+			"dataHeader"],
+			"properties": {
+				"dataHeader": {
+					"description": "response data header",
+					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_dataHeader_urhbz6y695ir"
+				},
+				"dataBody": {
+					"description": "response data header",
+					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_dataBody_s18cy4pdlgf5"
+				}
+			}
+		},
+		"_oai_wb_v1_credit_getCreditLoanBasicInfo_dataHeader_urhbz6y695ir": {
+			"type": "object",
+			"required": ["UTZPE_CNCT_IPAD",
+			"UTZPE_CNCT_MCHR_IDF_SRNO",
+			"UTZPE_CNCT_MCHR_UNQ_ID",
+			"UTZPE_CNCT_TEL_NO_TXT",
+			"UTZ_MCHR_APP_VER_NM",
+			"UTZ_MCHR_MDL_NM",
+			"UTZ_MCHR_OS_DSCD",
+			"UTZ_MCHR_OS_VER_NM"],
+			"properties": {
+				"UTZPE_CNCT_IPAD": {
+					"type": "string",
+					"example": "",
+					"description": "이용자접속IP주소"
+				},
+				"UTZPE_CNCT_MCHR_UNQ_ID": {
+					"type": "string",
+					"example": "",
+					"description": "이용자접속기기고유ID"
+				},
+				"UTZPE_CNCT_TEL_NO_TXT": {
+					"type": "string",
+					"example": "",
+					"description": "이용자접속전화번호"
+				},
+				"UTZPE_CNCT_MCHR_IDF_SRNO": {
+					"type": "string",
+					"example": "",
+					"description": "이용자접속기기식별일련번호"
+				},
+				"UTZ_MCHR_OS_DSCD": {
+					"type": "string",
+					"example": "",
+					"description": "이용기기운영체계구분코드"
+				},
+				"UTZ_MCHR_OS_VER_NM": {
+					"type": "string",
+					"example": "",
+					"description": "이용기기운영체계버전명"
+				},
+				"UTZ_MCHR_MDL_NM": {
+					"type": "string",
+					"example": "",
+					"description": "이용기기모델명"
+				},
+				"UTZ_MCHR_APP_VER_NM": {
+					"type": "string",
+					"example": "",
+					"description": "앱 버전"
+				}
+			},
+			"description": "response data header"
+		},
+		"_oai_wb_v1_credit_getCreditLoanBasicInfo_dataBody_s18cy4pdlgf5": {
+			"type": "object",
+			"required": ["CRINF_INQ_AGR_YN",
+			"CRINF_OFR_AGR_YN",
+			"CRINF_UTZ_OFR_YN",
+			"CUS_IDF_INF_AGR_YN"],
+			"properties": {
+				"CRINF_INQ_AGR_YN": {
+					"type": "string",
+					"example": "Y",
+					"description": "SGI서울보증 개인정보 동의여부"
+				},
+				"CRINF_UTZ_OFR_YN": {
+					"type": "string",
+					"example": "Y",
+					"description": "개인(신용정보수집이용제공동의_여신)"
+				},
+				"CRINF_OFR_AGR_YN": {
+					"type": "string",
+					"example": "Y",
+					"description": "개인(신용)정보조회동의서"
+				},
+				"CUS_IDF_INF_AGR_YN": {
+					"type": "string",
+					"example": "Y",
+					"description": "공공기관전산정보이용동의서 (고객식별정보동의여부)"
+				}
+			},
+			"description": "response data header"
+		},
+		"_oai_wb_v1_credit_getCreditLoanBasicInfo_RESPONSE_qhkjka6zhvli": {
+			"type": "object",
+			"required": ["dataBody",
+			"dataHeader"],
+			"properties": {
+				"dataHeader": {
+					"description": "response data header",
+					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_dataHeader_qy4gpu8k7syr"
+				},
+				"dataBody": {
+					"description": "response data header",
+					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_dataBody_1jei8fqkf2gxd"
+				}
+			}
+		},
+		"_oai_wb_v1_credit_getCreditLoanBasicInfo_dataHeader_qy4gpu8k7syr": {
+			"type": "object",
+			"description": "response data header"
+		},
+		"_oai_wb_v1_credit_getCreditLoanBasicInfo_dataBody_1jei8fqkf2gxd": {
+			"type": "object",
+			"properties": {
+				"LN_AVL_AM": {
+					"type": "number",
+					"example": "350000000",
+					"description": "대출금액(대출한도금액)"
+				},
+				"ZPNO_1": {
+					"type": "string",
+					"example": "12032",
+					"description": "자택 우편번호"
+				},
+				"ZPNO_ADR": {
+					"type": "string",
+					"example": "서울시 동대문구 답십리2동",
+					"description": "자택주소"
+				},
+				"ATCD_ADR_1": {
+					"type": "string",
+					"example": "한신아파트 113동 1207호",
+					"description": "자택상세주소"
+				},
+				"WRLC_TEL_1": {
+					"type": "string",
+					"example": "0222441144",
+					"description": "직장전화번호"
+				},
+				"WRLC_NM_1": {
+					"type": "string",
+					"example": "팔로알토네트워크",
+					"description": "직장명"
+				},
+				"EMAIL_1": {
+					"type": "string",
+					"example": "palto@naver.cim",
+					"description": "고객이메일주소"
+				},
+				"ERR_TXT": {
+					"type": "string",
+					"example": "",
+					"description": "오류내용"
+				},
+				"SGI_TSBSR_NO": {
+					"type": "string",
+					"example": "1005905932948090",
+					"description": "서울보증보험가청약번호"
+				},
+				"CNT": {
+					"type": "number",
+					"example": "1",
+					"description": "입금가능계좌수"
+				},
+				"ACCOUNT_LIST": {
+					"description": "반복부",
+					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_ACCOUNT_LIST_1jict61udu3ja"
+				}
+			},
+			"description": "response data header"
+		},
+		"_oai_wb_v1_credit_getCreditLoanBasicInfo_ACCOUNT_LIST_1jict61udu3ja": {
+			"type": "array",
+			"description": "반복부",
+			"items": {
+				"description": "반복부",
+				"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_ACCOUNT_LIST_1hravv0de1vlg"
+			}
+		},
+		"_oai_wb_v1_credit_getCreditLoanBasicInfo_ACCOUNT_LIST_1hravv0de1vlg": {
+			"type": "object",
+			"properties": {
+				"CUS_USG_ACNO": {
+					"type": "string",
+					"example": "1087300116956",
+					"description": "입금가능계좌번호"
+				}
+			},
+			"description": "반복부"
+		}
+	}
+}
