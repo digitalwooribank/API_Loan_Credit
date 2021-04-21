@@ -1,46 +1,36 @@
 {
 	"swagger": "2.0",
 	"info": {
-		"description": "UNOAPI Swagger Spec. JSON",
+		"description" : "Wooribank API, Wooribank Swagger Spec. JSON",
 		"version": "1.0.0",
-		"title": "UNOAPI"
+		"title" : "Wooribank API"
 	},
-	"host": "",
+	"host": "localhost:8080",
 	"basePath": "/",
 	"tags": [{
-		"name": "api-list",
-		"description": "List of APIs"
+		"name": "List of APIs",
+		"description": ""
 	}],
 	"paths": {
-		"/oai/wb/v1/credit/getCreditLoanBasicInfo": {
+		"/oai/wb/v1/credit/getCreditLoanEmFnd": {
 			"post": {
-				"tags": ["api-list"],
-				"summary": "대출기본정보요청API",
-				"operationId": "_oai_wb_v1_credit_getCreditLoanBasicInfo",
+				"tags": ["List of APIs"],
+				"summary": "신용(비상자금)대출한도조회",
+				"operationId": "_oai_wb_v1_credit_getCreditLoanEmFnd",
 				"consumes": ["application/json"],
 				"produces": ["application/json"],
 				"parameters": [{
 					"name": "appkey",
 					"in": "header",
 					"description": "API Key(제휴사키)",
+					"type" : "string",
 					"required": false
 				},
 				{
 					"name": "token",
 					"in": "header",
 					"description": "인증토큰",
-					"required": false
-				},
-				{
-					"name": "itcsno",
-					"in": "header",
-					"description": "통합고객번호",
-					"required": false
-				},
-				{
-					"name": "ebnk_utzpe_no",
-					"in": "header",
-					"description": "전자뱅킹이용자번호",
+					"type" : "string",
 					"required": false
 				},
 				{
@@ -49,7 +39,7 @@
 					"description": "request body",
 					"required": true,
 					"schema": {
-						"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_REQUEST_trzodgfjhe7o"
+						"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanEmFnd_REQUEST_trzodgfjhe7o"
 					}
 				}],
 				"responses": {
@@ -71,30 +61,30 @@
 					"200": {
 						"description": "OK",
 						"schema": {
-							"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_RESPONSE_qhkjka6zhvli"
+							"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanEmFnd_RESPONSE_qhkjka6zhvli"
 						}
 					}
 				}
+			  }
 			}
-		}
-	},
+		},
 	"definitions": {
-		"_oai_wb_v1_credit_getCreditLoanBasicInfo_REQUEST_trzodgfjhe7o": {
+		"_oai_wb_v1_credit_getCreditLoanEmFnd_REQUEST_trzodgfjhe7o": {
 			"type": "object",
 			"required": ["dataBody",
 			"dataHeader"],
 			"properties": {
 				"dataHeader": {
 					"description": "response data header",
-					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_dataHeader_urhbz6y695ir"
+					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanEmFnd_dataHeader_urhbz6y695ir"
 				},
 				"dataBody": {
 					"description": "response data header",
-					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_dataBody_s18cy4pdlgf5"
+					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanEmFnd_dataBody_s18cy4pdlgf5"
 				}
 			}
 		},
-		"_oai_wb_v1_credit_getCreditLoanBasicInfo_dataHeader_urhbz6y695ir": {
+		"_oai_wb_v1_credit_getCreditLoanEmFnd_dataHeader_urhbz6y695ir": {
 			"type": "object",
 			"required": ["UTZPE_CNCT_IPAD",
 			"UTZPE_CNCT_MCHR_IDF_SRNO",
@@ -148,7 +138,7 @@
 			},
 			"description": "response data header"
 		},
-		"_oai_wb_v1_credit_getCreditLoanBasicInfo_dataBody_s18cy4pdlgf5": {
+		"_oai_wb_v1_credit_getCreditLoanEmFnd_dataBody_s18cy4pdlgf5": {
 			"type": "object",
 			"required": ["CRINF_INQ_AGR_YN",
 			"CRINF_OFR_AGR_YN",
@@ -178,26 +168,26 @@
 			},
 			"description": "response data header"
 		},
-		"_oai_wb_v1_credit_getCreditLoanBasicInfo_RESPONSE_qhkjka6zhvli": {
+		"_oai_wb_v1_credit_getCreditLoanEmFnd_RESPONSE_qhkjka6zhvli": {
 			"type": "object",
 			"required": ["dataBody",
 			"dataHeader"],
 			"properties": {
 				"dataHeader": {
 					"description": "response data header",
-					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_dataHeader_qy4gpu8k7syr"
+					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanEmFnd_dataHeader_qy4gpu8k7syr"
 				},
 				"dataBody": {
 					"description": "response data header",
-					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_dataBody_1jei8fqkf2gxd"
+					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanEmFnd_dataBody_1jei8fqkf2gxd"
 				}
 			}
 		},
-		"_oai_wb_v1_credit_getCreditLoanBasicInfo_dataHeader_qy4gpu8k7syr": {
+		"_oai_wb_v1_credit_getCreditLoanEmFnd_dataHeader_qy4gpu8k7syr": {
 			"type": "object",
 			"description": "response data header"
 		},
-		"_oai_wb_v1_credit_getCreditLoanBasicInfo_dataBody_1jei8fqkf2gxd": {
+		"_oai_wb_v1_credit_getCreditLoanEmFnd_dataBody_1jei8fqkf2gxd": {
 			"type": "object",
 			"properties": {
 				"LN_AVL_AM": {
@@ -207,32 +197,32 @@
 				},
 				"ZPNO_1": {
 					"type": "string",
-					"example": "12032",
+					"example": "11111",
 					"description": "자택 우편번호"
 				},
 				"ZPNO_ADR": {
 					"type": "string",
-					"example": "서울시 동대문구 답십리2동",
+					"example": "서울시 동대문구 답십리o동",
 					"description": "자택주소"
 				},
 				"ATCD_ADR_1": {
 					"type": "string",
-					"example": "한신아파트 113동 1207호",
+					"example": "oo아파트 ooo동 oooo호",
 					"description": "자택상세주소"
 				},
 				"WRLC_TEL_1": {
 					"type": "string",
-					"example": "0222441144",
+					"example": "0212345678",
 					"description": "직장전화번호"
 				},
 				"WRLC_NM_1": {
 					"type": "string",
-					"example": "팔로알토네트워크",
+					"example": "ooo네트워크",
 					"description": "직장명"
 				},
 				"EMAIL_1": {
 					"type": "string",
-					"example": "palto@naver.cim",
+					"example": "test@wooribank.com",
 					"description": "고객이메일주소"
 				},
 				"ERR_TXT": {
@@ -242,8 +232,8 @@
 				},
 				"SGI_TSBSR_NO": {
 					"type": "string",
-					"example": "1005905932948090",
-					"description": "서울보증보험가청약번호"
+					"example": "1111111111111111",
+					"description": "서울oo보험가청약번호"
 				},
 				"CNT": {
 					"type": "number",
@@ -252,25 +242,25 @@
 				},
 				"ACCOUNT_LIST": {
 					"description": "반복부",
-					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_ACCOUNT_LIST_1jict61udu3ja"
+					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanEmFnd_ACCOUNT_LIST_1jict61udu3ja"
 				}
 			},
 			"description": "response data header"
 		},
-		"_oai_wb_v1_credit_getCreditLoanBasicInfo_ACCOUNT_LIST_1jict61udu3ja": {
+		"_oai_wb_v1_credit_getCreditLoanEmFnd_ACCOUNT_LIST_1jict61udu3ja": {
 			"type": "array",
 			"description": "반복부",
 			"items": {
 				"description": "반복부",
-				"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanBasicInfo_ACCOUNT_LIST_1hravv0de1vlg"
+				"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanEmFnd_ACCOUNT_LIST_1hravv0de1vlg"
 			}
 		},
-		"_oai_wb_v1_credit_getCreditLoanBasicInfo_ACCOUNT_LIST_1hravv0de1vlg": {
+		"_oai_wb_v1_credit_getCreditLoanEmFnd_ACCOUNT_LIST_1hravv0de1vlg": {
 			"type": "object",
 			"properties": {
 				"CUS_USG_ACNO": {
 					"type": "string",
-					"example": "1087300116956",
+					"example": "1111111111111",
 					"description": "입금가능계좌번호"
 				}
 			},
