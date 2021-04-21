@@ -1,0 +1,222 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description" : "Wooribank API, Wooribank Swagger Spec. JSON",
+		"version": "1.0.0",
+		"title" : "Wooribank API"
+	},
+	"host": "localhost:8080",
+	"basePath": "/",
+	"tags": [{
+		"name": "List of APIs",
+		"description": ""
+	}],
+	"paths": {
+		"/oai/wb/v1/credit/getCreditLoanWon" : {
+		  "post" : {
+			"tags" : [ "List of APIs" ],
+			"summary" : "우리 Won하는 직장인대출 한도 조회",
+			"operationId" : "_oai_wb_v1_credit_getCreditLoanWon",
+			"consumes" : [ "application/json" ],
+			"produces" : [ "application/json" ],
+			"parameters" : [ {
+			  "name" : "appkey",
+			  "in" : "header",
+			  "description" : "API Key(제휴사키)",
+			  "type" : "string",
+			  "required" : false
+			}, {
+			  "in" : "body",
+			  "name" : "REQUEST",
+			  "description" : "request body",
+			  "required" : true,
+			  "schema" : {
+				"$ref" : "#/definitions/_oai_wb_v1_credit_getCreditLoanWon_REQUEST_t87duisjjho5"
+			  }
+			} ],
+			"responses" : {
+			  "400" : {
+				"description" : "BAD_REQUEST"
+			  },
+			  "404" : {
+				"description" : "NOT_FOUND"
+			  },
+			  "405" : {
+				"description" : "METHOD_NOT_ALLOWED"
+			  },
+			  "500" : {
+				"description" : "INTERNAL_SERVER_ERROR"
+			  },
+			  "503" : {
+				"description" : "SERVICE_UNAVAILABLE"
+			  },
+			  "200" : {
+				"description" : "OK",
+				"schema" : {
+				  "$ref" : "#/definitions/_oai_wb_v1_credit_getCreditLoanWon_RESPONSE_t8f815oe3h9t"
+				}
+			  }
+			}
+		  }
+		}
+	},
+	"definitions": {
+		"_oai_wb_v1_credit_getCreditLoanWon_REQUEST_t87duisjjho5" : {
+		  "type" : "object",
+		  "required" : [ "dataBody", "dataHeader" ],
+		  "properties" : {
+			"dataHeader" : {
+			  "description" : "response data header",
+			  "$ref" : "#/definitions/_oai_wb_v1_credit_getCreditLoanWon_dataHeader_tofofgmlv48k"
+			},
+			"dataBody" : {
+			  "description" : "response data header",
+			  "$ref" : "#/definitions/_oai_wb_v1_credit_getCreditLoanWon_dataBody_s50pgjn7jrco"
+			}
+		  }
+		},
+		"_oai_wb_v1_credit_getCreditLoanWon_dataHeader_tofofgmlv48k" : {
+		  "type" : "object",
+		  "required" : [ "UTZPE_CNCT_IPAD", "UTZPE_CNCT_MCHR_IDF_SRNO", "UTZPE_CNCT_MCHR_UNQ_ID", "UTZPE_CNCT_TEL_NO_TXT", "UTZ_MCHR_APP_VER_NM", "UTZ_MCHR_MDL_NM", "UTZ_MCHR_OS_DSCD", "UTZ_MCHR_OS_VER_NM" ],
+		  "properties" : {
+			"UTZPE_CNCT_IPAD" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용자접속IP주소"
+			},
+			"UTZPE_CNCT_MCHR_UNQ_ID" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용자접속기기고유ID"
+			},
+			"UTZPE_CNCT_TEL_NO_TXT" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용자접속전화번호"
+			},
+			"UTZPE_CNCT_MCHR_IDF_SRNO" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용자접속기기식별일련번호"
+			},
+			"UTZ_MCHR_OS_DSCD" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용기기운영체계구분코드"
+			},
+			"UTZ_MCHR_OS_VER_NM" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용기기운영체계버전명"
+			},
+			"UTZ_MCHR_MDL_NM" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "이용기기모델명"
+			},
+			"UTZ_MCHR_APP_VER_NM" : {
+			  "type" : "string",
+			  "example" : "",
+			  "description" : "앱 버전"
+			}
+		  },
+		  "description" : "response data header"
+		},
+		"_oai_wb_v1_credit_getCreditLoanWon_dataBody_s50pgjn7jrco" : {
+		  "type" : "object",
+		  "required" : [ "CUS_KORL_NM", "ENCY_ACNM_NO", "RQ_AM" ],
+		  "properties" : {
+			"ENCY_ACNM_NO" : {
+			  "type" : "string",
+			  "example" : "1111111111111",
+			  "description" : "암호화실명번호"
+			},
+			"CUS_KORL_NM" : {
+			  "type" : "string",
+			  "example" : "홍길동",
+			  "description" : "고객한글명"
+			},
+			"RQ_AM" : {
+			  "type" : "number",
+			  "example" : "10000000",
+			  "description" : "신청금액"
+			},
+			"BZPE_CRNO" : {
+			  "type" : "number",
+			  "example" : "1002030000",
+			  "description" : "사업자법인등록번호"
+			},
+			"ENCN_DT" : {
+			  "type" : "string",
+			  "example" : "1",
+			  "description" : "입사일자"
+			},
+			"HLD_YINC_AM" : {
+			  "type" : "string",
+			  "example" : "1",
+			  "description" : "60000000"
+			},
+			"ORG_NAME" : {
+			  "type" : "string",
+			  "example" : "1",
+			  "description" : "WOORI"
+			},
+			"EXTR_IDF_REFC_KEY_TXT" : {
+			  "type" : "string",
+			  "example" : "woori202101011234567",
+			  "description" : "외부식별참조키"
+			}
+		  },
+		  "description" : "response data header"
+		},
+		"_oai_wb_v1_credit_getCreditLoanWon_RESPONSE_t8f815oe3h9t" : {
+		  "type" : "object",
+		  "required" : [ "dataBody", "dataHeader" ],
+		  "properties" : {
+			"dataHeader" : {
+			  "description" : "response data header",
+			  "$ref" : "#/definitions/_oai_wb_v1_credit_getCreditLoanWon_dataHeader_1jifl0eg9ohtd"
+			},
+			"dataBody" : {
+			  "description" : "response data header",
+			  "$ref" : "#/definitions/_oai_wb_v1_credit_getCreditLoanWon_dataBody_rhlnzysl64vm"
+			}
+		  }
+		},
+		"_oai_wb_v1_credit_getCreditLoanWon_dataHeader_1jifl0eg9ohtd" : {
+		  "type" : "object",
+		  "description" : "response data header"
+		},
+		"_oai_wb_v1_credit_getCreditLoanWon_dataBody_rhlnzysl64vm" : {
+		  "type" : "object",
+		  "properties" : {
+			"LON_DCS_IR" : {
+			  "type" : "number",
+			  "example" : "008.15000",
+			  "description" : "여신결정금리"
+			},
+			"APL_ADN_IR" : {
+			  "type" : "number",
+			  "example" : "006.310000",
+			  "description" : "적용가산금리"
+			},
+			"TGT_CUS_PRME_IR" : {
+			  "type" : "number",
+			  "example" : "85000000",
+			  "description" : "승인금액"
+			},
+			"WOORI_PBOK_HLDG_PRME_IR" : {
+			  "type" : "string",
+			  "example" : "BA07",
+			  "description" : "처리상태코드"
+			},
+			"APV_AM" : {
+			  "type" : "string",
+			  "example" : "53202405712",
+			  "description" : "여신승인신청번호"
+			}
+		  },
+		  "description" : "response data header"
+		}
+	}
+}
