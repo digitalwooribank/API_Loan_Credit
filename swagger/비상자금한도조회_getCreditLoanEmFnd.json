@@ -65,9 +65,9 @@
 						}
 					}
 				}
-			  }
 			}
-		},
+		}
+	},
 	"definitions": {
 		"_oai_wb_v1_credit_getCreditLoanEmFnd_REQUEST_trzodgfjhe7o": {
 			"type": "object",
@@ -140,30 +140,25 @@
 		},
 		"_oai_wb_v1_credit_getCreditLoanEmFnd_dataBody_s18cy4pdlgf5": {
 			"type": "object",
-			"required": ["CRINF_INQ_AGR_YN",
-			"CRINF_OFR_AGR_YN",
+			"required": ["ENCY_ACNM_NO",
+			"CUS_KORL_NM",
 			"CRINF_UTZ_OFR_YN",
 			"CUS_IDF_INF_AGR_YN"],
 			"properties": {
-				"CRINF_INQ_AGR_YN": {
+				"ENCY_ACNM_NO": {
 					"type": "string",
-					"example": "Y",
-					"description": "SGI서울보증 개인정보 동의여부"
+					"example": "11111111111111111111",
+					"description": "암호화실명번호"
 				},
-				"CRINF_UTZ_OFR_YN": {
+				"CUS_KORL_NM": {
 					"type": "string",
-					"example": "Y",
-					"description": "개인(신용정보수집이용제공동의_여신)"
+					"example": "홍길동",
+					"description": "고객한글명"
 				},
-				"CRINF_OFR_AGR_YN": {
+				"RQ_AM": {
 					"type": "string",
-					"example": "Y",
-					"description": "개인(신용)정보조회동의서"
-				},
-				"CUS_IDF_INF_AGR_YN": {
-					"type": "string",
-					"example": "Y",
-					"description": "공공기관전산정보이용동의서 (고객식별정보동의여부)"
+					"example": "30000000",
+					"description": "신청금액"
 				}
 			},
 			"description": "response data header"
@@ -190,59 +185,35 @@
 		"_oai_wb_v1_credit_getCreditLoanEmFnd_dataBody_1jei8fqkf2gxd": {
 			"type": "object",
 			"properties": {
-				"LN_AVL_AM": {
+				"LON_DCS_IR": {
 					"type": "number",
-					"example": "350000000",
-					"description": "대출금액(대출한도금액)"
+					"example": "4.19000",
+					"description": "여신결정금리"
 				},
-				"ZPNO_1": {
+				"APL_ADN_IR": {
 					"type": "string",
-					"example": "11111",
-					"description": "자택 우편번호"
+					"example": "3.09000",
+					"description": "적용가산금리"
 				},
-				"ZPNO_ADR": {
+				"TGT_CUS_PRME_IR": {
 					"type": "string",
-					"example": "서울시 동대문구 답십리o동",
-					"description": "자택주소"
-				},
-				"ATCD_ADR_1": {
-					"type": "string",
-					"example": "oo아파트 ooo동 oooo호",
-					"description": "자택상세주소"
-				},
-				"WRLC_TEL_1": {
-					"type": "string",
-					"example": "0212345678",
-					"description": "직장전화번호"
-				},
-				"WRLC_NM_1": {
-					"type": "string",
-					"example": "ooo네트워크",
-					"description": "직장명"
-				},
-				"EMAIL_1": {
-					"type": "string",
-					"example": "test@wooribank.com",
-					"description": "고객이메일주소"
-				},
-				"ERR_TXT": {
-					"type": "string",
-					"example": "",
-					"description": "오류내용"
-				},
-				"SGI_TSBSR_NO": {
-					"type": "string",
-					"example": "1111111111111111",
-					"description": "서울oo보험가청약번호"
-				},
-				"CNT": {
-					"type": "number",
 					"example": "1",
-					"description": "입금가능계좌수"
+					"description": "대상고객우대금리"
 				},
-				"ACCOUNT_LIST": {
-					"description": "반복부",
-					"$ref": "#/definitions/_oai_wb_v1_credit_getCreditLoanEmFnd_ACCOUNT_LIST_1jict61udu3ja"
+				"WOORI_PBOK_HLDG_PRME_IR": {
+					"type": "string",
+					"example": "1",
+					"description": "우리통장보유우대금리"
+				},
+				"APV_AM": {
+					"type": "string",
+					"example": "30000000",
+					"description": "승인금액"
+				},
+				"PRC_STCD": {
+					"type": "string",
+					"example": "BA05",
+					"description": "처리상태코드"
 				}
 			},
 			"description": "response data header"
@@ -265,6 +236,6 @@
 				}
 			},
 			"description": "반복부"
-		}
-	}
+		}		
+   }
 }
